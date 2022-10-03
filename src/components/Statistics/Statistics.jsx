@@ -1,32 +1,35 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { StatisticsWrapper, StatisticsList, Accent } from './Statistics.styled';
 import PropTypes from 'prop-types';
 
-export default class Statistics extends Component {
-  render() {
-    return (
-      <StatisticsWrapper>
-        <StatisticsList>
-          <li>
-            <Accent>Good</Accent>:{this.props.good}😊
-          </li>
-          <li>
-            <Accent>Neutral</Accent>:{this.props.neutral}🤨
-          </li>
-          <li>
-            <Accent>Bad</Accent>:{this.props.bad}☹️
-          </li>
-          <li>
-            <Accent>Total</Accent> :{this.props.total()}
-          </li>
-          <li>
-            <Accent>Positive feedback</Accent> :
-            {this.props.positivePercentage()}%
-          </li>
-        </StatisticsList>
-      </StatisticsWrapper>
-    );
-  }
+export default function Statistics({
+  good,
+  neutral,
+  bad,
+  total,
+  positivePercentage,
+}) {
+  return (
+    <StatisticsWrapper>
+      <StatisticsList>
+        <li>
+          <Accent>Good</Accent>:{good}😊
+        </li>
+        <li>
+          <Accent>Neutral</Accent>:{neutral}🤨
+        </li>
+        <li>
+          <Accent>Bad</Accent>:{bad}☹️
+        </li>
+        <li>
+          <Accent>Total</Accent> :{total()}
+        </li>
+        <li>
+          <Accent>Positive feedback</Accent> :{positivePercentage()}%
+        </li>
+      </StatisticsList>
+    </StatisticsWrapper>
+  );
 }
 
 Statistics.propTypes = {
