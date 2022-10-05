@@ -22,10 +22,10 @@ export default function Statistics({
           <Accent>Bad</Accent>:{bad}☹️
         </li>
         <li>
-          <Accent>Total</Accent> :{total()}
+          <Accent>Total</Accent> :{total}
         </li>
         <li>
-          <Accent>Positive feedback</Accent> :{positivePercentage()}%
+          <Accent>Positive feedback</Accent> :{positivePercentage}%
         </li>
       </StatisticsList>
     </StatisticsWrapper>
@@ -36,6 +36,6 @@ Statistics.propTypes = {
   good: PropTypes.number.isRequired,
   bad: PropTypes.number.isRequired,
   neutral: PropTypes.number.isRequired,
-  positivePercentage: PropTypes.func.isRequired,
-  total: PropTypes.func.isRequired,
+  positivePercentage: PropTypes.number.isRequired,
+  total: PropTypes.number.isRequired,
 };

@@ -14,6 +14,7 @@ export default function App() {
     bad,
     neutral,
   };
+  let propsNames = Object.keys(options);
 
   const onStateChange = event => {
     const { name } = event.currentTarget;
@@ -49,11 +50,12 @@ export default function App() {
       : 0;
     return statsAmount;
   };
+
   return (
     <Feedback>
       <Section title="Please leave Your feedback">
         <FeedbackOptions
-          options={options}
+          options={propsNames}
           onLeaveFeedback={onStateChange}
         ></FeedbackOptions>
       </Section>
@@ -63,12 +65,8 @@ export default function App() {
             good={good}
             bad={bad}
             neutral={neutral}
-            total={() => {
-              return countTotalFeedback();
-            }}
-            positivePercentage={() => {
-              return countPositiveFeedbackPercentage();
-            }}
+            total={countTotalFeedback()}
+            positivePercentage={countPositiveFeedbackPercentage()}
           ></Statistics>
         ) : (
           <Notification message={'There is no feedback'} />

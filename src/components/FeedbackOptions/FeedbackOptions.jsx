@@ -7,11 +7,10 @@ import {
 import PropTypes from 'prop-types';
 
 export default function FeedbackOptions({ options, onLeaveFeedback }) {
-  let propsNames = Object.keys(options);
   return (
     <FeedbackOptionsWrapper>
       <OptionList>
-        {propsNames.map(value => {
+        {options.map(value => {
           return (
             <li key={value}>
               <OptionButton
@@ -30,10 +29,6 @@ export default function FeedbackOptions({ options, onLeaveFeedback }) {
 }
 
 FeedbackOptions.propTypes = {
-  options: PropTypes.shape({
-    good: PropTypes.number.isRequired,
-    bad: PropTypes.number.isRequired,
-    neutral: PropTypes.number.isRequired,
-  }),
+  options: PropTypes.arrayOf(PropTypes.string.isRequired),
   onLeaveFeedback: PropTypes.func.isRequired,
 };
